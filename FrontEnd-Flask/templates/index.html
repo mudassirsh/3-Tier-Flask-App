@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer List</title>
+</head>
+<body>
+
+<h2>Add a new course</h2>
+
+<form action="/create" method="post">
+
+    <input type="text" name="username" placeholder="Name">
+    <input type="text" name="email" placeholder="Email">
+    <input type="password" name="Password" placeholder="Password">
+    <input type="submit" value="Create">
+ </form>   
+
+<h1>Customer List</h1>
+    {% if customer_list %}
+<ul>
+            {% for customer in customer_list %}
+            <tr>
+                <li>{{ customer[0] }} - {{ customer[1] }} - {{customer[2]}}</li>
+            </tr>
+            {% endfor %}
+</ul>
+    {% else %}
+<p>No customers available.</p>
+    {% endif %}
+
+    
+
+</body>
+</html>
+
+

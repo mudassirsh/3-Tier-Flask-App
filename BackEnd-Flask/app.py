@@ -1,16 +1,17 @@
 import os
 import psycopg2
 # from dotenv import load_dotenv
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, request, redirect, url_for, jsonify
 # from flask_cors import CORS
 # from flask_sqlalchemy import SQLAlchemy
+import json
 
 app = Flask(__name__)
 
 # if __name__ == '__main__':
 #     app.run(host='0.0.0.0', port=3000)
 
-
+######  BACK-END
 
 def db_conn():      # we call this funcion when we need to call the database.
     conn = psycopg2.connect(database="flask_db",host="localhost",user="postgres",password="admin",port="5432")
@@ -26,8 +27,9 @@ cur.execute('''CREATE TABLE IF NOT EXISTS "Users_Table" (id serial PRIMARY KEY, 
 cur.close()
 conn.close()
 
+######  BACK-g on port 5000END  --- runnin
 
-@app.route('/', methods=['GET'])
+@app.route('/get_list', methods=['GET'])
 def index():                ## index view funcion 
     conn = db_conn()        ## inside the index func we open a db connection 
     cur = conn.cursor()
@@ -38,24 +40,12 @@ def index():                ## index view funcion
     cur.close()     # now we can close the cursor and connection
     conn.close()
     return data_list
+    #return render_template('create.html', data_list=data_list)
 
     # finally we have to return a call to the render template function to render a template file called index.html for passing it the list of customer. 
     #return render_template('index.html', data = data_list)
 
-############ Books program code 
-# @app.route('/')
-# def index():
-#     conn = get_db_connection()
-#     cur = conn.cursor()
-#     cur.execute('SELECT * FROM books;')
-#     books = cur.fetchall()
-#     print(books)
-#     cur.close()
-#     conn.close()
-#    # return render_template('index.html', books=books)
-#     #return (books=books)
-#     return books
-##############
+######  BACK-END
 
 @app.route('/create', methods=['POST'])
 def create():

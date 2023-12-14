@@ -36,14 +36,6 @@ if not os.path.exist(os.getenv('DB_NAME')):
 
 
 
-
-@app.route('/return_message')
-def return_message():
-    return 'this message is from Backend'
-
-
-######### Back End #############
-
 @app.route('/get_list', methods=['GET'])
 def get_customers():
     customers = Users.query.all()
@@ -68,9 +60,6 @@ def create_customer():
 if __name__ == '__main__':
      app.run(debug=True)
 
-
-# if __name__ == '__main__':
-#     app.run(debug=True, port=8001)
 
 
 # if __name__ == '__main__':

@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import './App.css';
+
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -49,7 +49,7 @@ function App() {
       const result = await response.json();
       console.log('Registration Result:', result);
 
-      // After successful registration, fetch updated user data
+      // After successful entry, fetch updated user data
       fetchData();
     } catch (error) {
       console.error('Error during registration:', error);
@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="App-header">
-          <h1>Register User</h1>
+          <h1>Enter User Details</h1>
       <label>
         Username:
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />

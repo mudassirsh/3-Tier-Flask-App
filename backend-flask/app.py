@@ -7,8 +7,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=3000)
 
 load_dotenv()
 CORS(app)  # Enable CORS for all routes
@@ -30,9 +28,9 @@ class Users(db.Model):
     email = db.Column(db.String(200), nullable=True)
     password = db.Column(db.String(20), nullable=True)
 
-#with app.app_context():
-if not os.path.exist(os.getenv('DB_NAME')):
+with app.app_context():
     db.create_all()
+
 
 
 
@@ -43,7 +41,6 @@ def get_customers():
         {'username': cust.username, 'email': cust.email, 'password': cust.password} for cust in customers
     ]
     return jsonify({'Customers': cust_list})
-
 
 
 
@@ -60,6 +57,9 @@ def create_customer():
 if __name__ == '__main__':
      app.run(debug=True)
 
+
+# if __name__ == '__main__':
+#     app.run(debug=True, port=8001)
 
 
 # if __name__ == '__main__':

@@ -1,0 +1,40 @@
+version: "2"
+
+services:
+  frontend:
+    build: 
+      context: ./frontend-react
+    container_name: frontend
+    image: "mudassirsh/frontend-react"
+    depends_on: 
+      - backend
+    ports:
+      - "3000:3000"
+
+  backend:
+    build: 
+      context: ./backend-flask
+    container_name: backend
+    image: "mudassirsh/backend-flask"
+    #environment:
+    #  - POSTGRES_DB=flask_db
+    depends_on: 
+      - db
+    ports:
+      - "5000:5000"
+
+  db:
+    container_name: flask_db_cont
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=admin
+      - DB_NAME=flask_db
+
+
+
+
+
+    

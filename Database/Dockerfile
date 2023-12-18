@@ -1,6 +1,6 @@
 # DB Dockerfile for testing purposes only
 
-FROM postgres
+FROM postgres:latest
 
 ENV DB_USER=postgres
 ENV DB_PASSWORD=admin

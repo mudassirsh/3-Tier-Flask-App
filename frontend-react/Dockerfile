@@ -4,6 +4,9 @@ FROM node:18-alpine
 # Application directory
 WORKDIR /app
 
+# Copy dependencies folder into working directory
+COPY package*.json /app/  
+
 # Install requirements 
 RUN npm install
 

@@ -15,7 +15,7 @@ function App() {
   /* Get API */
   const fetchData = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/get_list');
+      const response = await fetch('http://localhost:5000/get_list');
       const jsonData = await response.json();
   
       console.log('API Response:', jsonData);
@@ -34,7 +34,7 @@ function App() {
  /* Post API */
   const handleRegister = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/create', {
+      const response = await fetch('http://localhost:5000/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

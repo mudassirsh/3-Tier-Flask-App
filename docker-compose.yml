@@ -14,8 +14,8 @@ services:
     build: 
       context: ./backend-flask
     container_name: backend
-    #environment:
-    #  - POSTGRES_DB=flask_db
+    environment:
+      - DB_HOST=flask_db_cont
     depends_on: 
       - db
     ports:

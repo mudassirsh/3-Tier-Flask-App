@@ -5,18 +5,22 @@ from dotenv import load_dotenv
 from flask import Flask, request, jsonify 
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-
+import time
 
 app = Flask(__name__)
 
 
 load_dotenv()
-#CORS(app)  # Enable CORS for all routes
+CORS(app)       # Enable CORS for all routes
+
+time.sleep(5)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost:5432/flask_db'
 SQLALCHEMY_DATABASE_URI = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+
+
 
 db = SQLAlchemy(app)
 
@@ -29,11 +33,8 @@ class Users(db.Model):
     username = db.Column(db.String(200), nullable=True)
     email = db.Column(db.String(200), nullable=True)
     password = db.Column(db.String(20), nullable=True)
-
-    def json(self):
-        return {'id':id,'username':self.username,'email':self.email,'password':self.password}
-
-with app.app_context():
+   
+with app.app_context(): 
     db.create_all()
 
 
@@ -69,4 +70,6 @@ if __name__ == '__main__':
 
 # if __name__ == '__main__':
 #     app.run(host="localhost", port=8000, debug=True)
+
+
 

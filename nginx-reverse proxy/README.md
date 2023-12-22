@@ -1,4 +1,4 @@
-# Nginx - Reverse Proxy
+# Nginx - Proxy Server
 
 Proxy is of two types, Forward and Reverse. Both are same thing but in different directions. We need to identify who is the client and who is the server.
 

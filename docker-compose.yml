@@ -14,19 +14,20 @@ services:
     build: 
       context: ./backend-flask
     container_name: backend
-#    environment:
+    environment:
+      - DB_URL=postgresql://postgres:postgres@db_container:5432/flask_db
 #      - DB_USER=postgres
 #      - DB_PASSWORD=postgres
 #      - DB_HOST=database_container
 #      - DB_PORT=5432
 #      - DB_NAME=flask_db
     depends_on: 
-      - db_container
+      - db
     ports:
       - "5000:5000"
 
   db:
-    container_name: db_container
+    container_name: db
     image: postgres:latest
     environment:
       - POSTGRES_USER=postgres

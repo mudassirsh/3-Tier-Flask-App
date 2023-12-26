@@ -7,6 +7,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import time
 
+
 app = Flask(__name__)
 
 
@@ -15,8 +16,10 @@ CORS(app)       # Enable CORS for all routes
 
 time.sleep(5)
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost:5432/flask_db'
-SQLALCHEMY_DATABASE_URI = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/flask_db'
+#SQLALCHEMY_DATABASE_URI = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+
+SQLALCHEMY_DATABASE_URI =environ.get('DB_URL')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 
@@ -60,16 +63,16 @@ def create_customer():
     return jsonify({'message': 'User Created'}), 201
 
 
-if __name__ == '__main__':
-     app.run(debug=True)
+#if __name__ == '__main__':
+#     app.run(debug=True)
 
 
 # if __name__ == '__main__':
 #     app.run(debug=True, port=8001)
 
 
-# if __name__ == '__main__':
-#     app.run(host="localhost", port=8000, debug=True)
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=8000, debug=True)
 
 
 

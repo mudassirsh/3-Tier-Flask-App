@@ -38,7 +38,7 @@ services:
  
   nginx:
     build:
-      context: ./nginx-reverse proxy
+      context: ./nginx-reverse-proxy
     container_name: nginx
     depends_on:
       - backend

@@ -1,15 +1,12 @@
 # Base Image
 FROM nginx
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.disabled
 
-#COPY ./index.html /usr/share/nginx/html/index.html
-
-
+COPY nginx.conf /etc/nginx/conf.d/
 
 
 
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
-# CMD ["nginx", "nginx.exe"] 
-#, "--host=0.0.0.0", "--port=80"]

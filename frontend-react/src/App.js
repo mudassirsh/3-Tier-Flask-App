@@ -1,6 +1,4 @@
-
 import { useEffect, useState } from 'react';
-
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -11,14 +9,14 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-  
-  /* Get API */
+
+
   const fetchData = async () => {
     try {
+     
       const apiUrl = `http://${window.location.hostname}:80/get_list`;
-      const response = await fetch(apiUrl);
+      const response = await fetch(apiUrl);     
       const jsonData = await response.json();
-  
       console.log('API Response:', jsonData);
   
       if (jsonData.Customers && Array.isArray(jsonData.Customers)) {
@@ -32,10 +30,13 @@ function App() {
     }
   };
   
- /* Post API */
+ 
   const handleRegister = async () => {
     try {
-      const response = await fetch(`http://${window.location.hostname}:80/create`, {
+      
+      
+        const response = await fetch('http://${window.location.hostname}:80/create', {
+      
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ function App() {
       const result = await response.json();
       console.log('Registration Result:', result);
 
-      // After successful entry, fetch updated user data
+      // After successful registration, fetch updated user data
       fetchData();
     } catch (error) {
       console.error('Error during registration:', error);
@@ -59,7 +60,7 @@ function App() {
 
   return (
     <div className="App-header">
-          <h1>Enter User Details</h1>
+          <h1>Register User</h1>
       <label>
         Username:
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -90,5 +91,3 @@ function App() {
 }
 
 export default App;
-
-

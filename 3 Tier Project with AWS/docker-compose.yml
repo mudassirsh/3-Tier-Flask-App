@@ -1,33 +1,44 @@
 version: "3"
 
 services:
-  # frontend:
-  #   build: 
-  #     context: ./frontend-react
-  #   container_name: frontend
-  #   depends_on: 
-  #     - backend
-  #   ports:
-  #     - "3000:3000"
-
-  backend:
+  frontend:
     build: 
-      context: ./backend-flask
-    container_name: backend
-    environment:
-#      - DB_URL=postgresql://postgres:postgres@db:5432/flask_db
-      - SECRET_ARN=arn:aws:secretsmanager:us-east-1:265297481981:secret:AuroraCredentials-PjL1hj
-      - DB_NAME=flask_db
-      - CLUSTER_ARN=arn:aws:rds:us-east-1:265297481981:cluster:database-1
-#      - DB_USER=postgres
-#      - DB_PASSWORD=postgres
-#      - DB_HOST=database_container
-#      - DB_PORT=5432
-#      - DB_NAME=flask_db
-    # depends_on: 
-    #   - db
+      context: ./frontend-react
+    container_name: frontend
+    depends_on: 
+      - backend
     ports:
-      - "5000:5000"
+      - "3000:3000"
+
+  nginx:
+    build:
+      context: ./nginx-reverse-proxy
+    container_name: nginx
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "80:80"
+
+
+#   backend:
+#     build: 
+#       context: ./backend-flask
+#     container_name: backend
+#     environment:
+# #      - DB_URL=postgresql://postgres:postgres@db:5432/flask_db
+#       - SECRET_ARN=arn:aws:secretsmanager:us-east-1:265297481981:secret:AuroraCredentials-PjL1hj
+#       - DB_NAME=flask_db
+#       - CLUSTER_ARN=arn:aws:rds:us-east-1:265297481981:cluster:database-1
+# #      - DB_USER=postgres
+# #      - DB_PASSWORD=postgres
+# #      - DB_HOST=database_container
+# #      - DB_PORT=5432
+# #      - DB_NAME=flask_db
+#     # depends_on: 
+#     #   - db
+#     ports:
+#       - "5000:5000"
 
   # db:
   #   container_name: db
@@ -39,16 +50,6 @@ services:
   #   ports:
   #     - "5432:5432"
  
-  # nginx:
-  #   build:
-  #     context: ./nginx-reverse-proxy
-  #   container_name: nginx
-  #   depends_on:
-  #     - backend
-  #     - frontend
-  #   ports:
-  #     - "80:80"
-
 
 
 

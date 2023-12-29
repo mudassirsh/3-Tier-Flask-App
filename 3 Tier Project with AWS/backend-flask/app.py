@@ -12,6 +12,7 @@ from botocore.config import Config
 
 app = Flask(__name__)
 
+time.sleep(5)
 
 my_config = Config(
     region_name= 'us-east-1'
@@ -26,7 +27,7 @@ aurora_db_name = environ.get['DB_NAME']
 aurora_cluster_arn = environ.get['CLUSTER_ARN']
 aurora_secret_arn = environ.get['SECRET_ARN']
 
-time.sleep(5)
+
 
 
 
@@ -73,7 +74,7 @@ time.sleep(5)
 
 @app.route('/get_list', methods=['GET'])
 def getPerson():
-    personId = request.args.get('personId')
+    #personId = request.args.get('personId')
     response = callDbWithStatement("SELECT * FROM persons" )
     person = {}
     

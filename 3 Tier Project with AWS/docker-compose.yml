@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  frontend:
+    build: 
+      context: ./frontend-react
+    container_name: frontend
+    depends_on: 
+      - backend
+    ports:
+      - "3000:3000"
+
+  backend:
+    build: 
+      context: ./backend-flask
+    container_name: backend
+    environment:
+      - DB_URL=postgresql://postgres:postgres@db:5432/flask_db
+#      - DB_USER=postgres
+#      - DB_PASSWORD=postgres
+#      - DB_HOST=database_container
+#      - DB_PORT=5432
+#      - DB_NAME=flask_db
+    depends_on: 
+      - db
+    ports:
+      - "5000:5000"
+
+  db:
+    container_name: db
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=flask_db
+    ports:
+      - "5432:5432"
+ 
+  nginx:
+    build:
+      context: ./nginx-reverse-proxy
+    container_name: nginx
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "80:80"
+
+
+
+
+    

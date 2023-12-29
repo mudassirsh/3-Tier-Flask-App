@@ -35,7 +35,7 @@ function App() {
     try {
       
       
-        const response = await fetch('http://${window.location.hostname}:80/create', {
+        const response = await fetch(`http://${window.location.hostname}:80/create`, {
       
         method: 'POST',
         headers: {

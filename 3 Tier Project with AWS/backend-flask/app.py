@@ -74,7 +74,7 @@ time.sleep(5)
 @app.route('/get_list', methods=['GET'])
 def getPerson():
     personId = request.args.get('personId')
-    response = callDbWithStatement("SELECT * FROM Persons" )
+    response = callDbWithStatement("SELECT * FROM persons" )
     person = {}
     
     # records = response['records'] 

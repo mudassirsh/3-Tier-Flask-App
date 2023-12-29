@@ -23,9 +23,9 @@ rds_data = boto3.client('rds-data', config=my_config, aws_access_key_id={os.gete
 
 
 #Database Configuration Items
-aurora_db_name = environ.get['DB_NAME']
-aurora_cluster_arn = environ.get['CLUSTER_ARN']
-aurora_secret_arn = environ.get['SECRET_ARN']
+aurora_db_name = environ.get('DB_NAME')
+aurora_cluster_arn = environ.get('CLUSTER_ARN')
+aurora_secret_arn = environ.get('SECRET_ARN')
 
 
 

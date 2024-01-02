@@ -1,13 +1,16 @@
-# 3-Tier-Flask-App
+# 3 Tier Project with AWS
+
+This is the continuty 3 Tier Project. At this stage we are going to host the project at AWS infrastructure.
+
+- We are going to use 2 subnets, (i) Public (ii) Private, in different Avaiability zones.
+- For Database we will be using RDS Aurora-Postgres
 
 
-Frontend is in react, backend is designed in Flask and postgres has been used as a database. 
-It’s a simple application and take 3 inputs of username, password and email address and the page will print all the details of users being created before.
-Nginx is used for [Reverse Proxy](https://github.com/mudassirsh/3-Tier-Flask-App/tree/main/nginx-reverse%20proxy).
+
 
 
 
 <p align="center">
-  <img width="700" height="600" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/f0dfc27d-8e92-45e6-a228-37118f7cd79c">
+  <img width="700" height="600" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/f268add1-7834-48e1-adef-4572c7fcd23e">
 </p>
 

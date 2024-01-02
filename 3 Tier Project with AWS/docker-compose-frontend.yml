@@ -1,0 +1,19 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./frontend-react
+    container_name: frontend
+    ports:
+      - "3000:3000"
+
+  nginx:
+    build:
+      context: ./nginx-reverse-proxy
+    container_name: nginx
+    depends_on:
+      - frontend
+    ports:
+      - "80:80"
+
+    

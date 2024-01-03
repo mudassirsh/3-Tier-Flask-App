@@ -15,6 +15,7 @@
     <img width="550" height="250" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/5f3cda2a-d823-4a7f-9a46-520b035570f3">
   </p>
 
+<br><br>
 
 - **Create Subnets**
 
@@ -29,31 +30,31 @@ Subnet private 1 (Zone 1):	10.0.0.64/26		(Range: 10.0.0.64 – 10.0.0.127 = 256)
 
 Subnet private 1 (Zone 2):	10.0.0.128/26		(Range: 10.0.0.128 – 10.0.0.191 = 256)
 
-<br> <br><br>
+<br> <br><br><br><br>
 
 <p align="center">
   <img width="350" height="300" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/4dde466b-4b95-4cfe-8f47-f6efcf08f125"> 
-  <img width="350" height="300" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/8a4d66cf-dc98-4680-8d02-e47867d42c9b">
+  <img width="350" height="250" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/8a4d66cf-dc98-4680-8d02-e47867d42c9b">
 </p>
 
 
 <p align="center">
-  <img width="700" height="150" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/6ecc6c54-43c9-4f39-b90e-95aef8983fc9">
+  <img width="800" height="200" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/6ecc6c54-43c9-4f39-b90e-95aef8983fc9">
 </p>
 
 
-<br>
+<br><br>
 
 - **Create Public and Private Route Tables** 
 
 <p align="center">
-  <img width="350" height="300" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/64b2c94c-56b0-4083-b0fe-f0bc7d7a1364">
-  <img width="350" height="300" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/eaca1954-4cb2-437c-a81f-a89a09bd79d6">
+  <img width="360" height="330" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/64b2c94c-56b0-4083-b0fe-f0bc7d7a1364">
+  <img width="360" height="330" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/eaca1954-4cb2-437c-a81f-a89a09bd79d6">
 </p>
 
+<br><br>
 
-
-## Attach Public Route table to Internet gateway
+- **Attach Public Route table to Internet gateway**
 
 <img align="right" width="550" height="225" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/c0276b75-9ef8-4a85-a224-1824ca70dbd3" />
 
@@ -64,21 +65,21 @@ generated inside this rout table end up where.
 As the destination is 0.0.0.0 , so it means 
 it ends up to internet.
 
-<br><br>
-
+<br><br><br><br><br>
 
 
 - **Attached Public Subnet to Public Route Table (PublicRT)** 
 
-<img align="center" width="600" height="450" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/72c4b9ce-951d-43a2-92f2-e0ebc12605ab" />
+<img align="center" width="800" height="450" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/72c4b9ce-951d-43a2-92f2-e0ebc12605ab" />
+
+<br><br>
+
+- **Attach Private Subnets to Private Route Table (PrivateRT)**
 
 
-## Attach Private Subnets to Private Route Table (PrivateRT)
+<img align="center" width="800" height="450" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/fcabc5f4-ac43-4c73-926e-347246815f81" />
 
-
-<img align="center" width="650" height="350" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/fcabc5f4-ac43-4c73-926e-347246815f81" />
-
-
+<br><br>
 
 
 
@@ -91,7 +92,7 @@ it ends up to internet.
 
 - **Attach Nat Gateway to Private RT  ( Route Tables > Edit routes )**
 
-<img align="center" width="775" height="350" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/4482e61c-2681-43d2-9f34-874c3489b38e" />
+<img align="center" width="725" height="350" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/4482e61c-2681-43d2-9f34-874c3489b38e" />
 
 <br><br>
 
@@ -102,10 +103,11 @@ it ends up to internet.
 
 
 <p align="center">
-  <img width="500" height="300" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/23467813-9374-45f9-8f83-ace97e67703a">
+  <img width="700" height="400" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/23467813-9374-45f9-8f83-ace97e67703a">
  
 </p>
 
+<br><br>
 
 - **Create EC2 instance in Public Subnet**
 
@@ -131,11 +133,11 @@ Master password = postgres
 </p>
 
 
-Attach default SG to RDS
+- Attach default SG to RDS
 
 <img width="850" height="150" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/cb0fb6c1-4fae-4c89-9656-e774e7e42df3" />
 
-<br>
+
 <br><br>
 
 

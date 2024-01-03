@@ -11,6 +11,6 @@ This is the continuty 3 Tier Project. At this stage we are going to host the pro
 
 
 <p align="center">
-  <img width="700" height="600" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/f268add1-7834-48e1-adef-4572c7fcd23e">
+  <img width="750" height="650" src="https://github.com/mudassirsh/3-Tier-Flask-App/assets/18271814/f268add1-7834-48e1-adef-4572c7fcd23e">
 </p>
 

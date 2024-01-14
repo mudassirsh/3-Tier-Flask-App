@@ -162,7 +162,7 @@ Once created it will give us Secret ARN:
 
 
 
-<br><br><br>
+<br><br><br><br><br><br>
 
 
 - **Create IM role having access to RDS Aurora**

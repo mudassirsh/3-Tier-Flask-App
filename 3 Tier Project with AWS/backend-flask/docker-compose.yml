@@ -1,3 +1,4 @@
+# Docker Compose file for Backend
 version: "3"
 services:
   backend:
@@ -5,9 +6,9 @@ services:
       context: ./backend-flask
     container_name: backend
     environment:
-      - SECRET_ARN=arn:aws:secretsmanager:us-east-1:265297481981:secret:AuroraCredentials-PjL1hj
+      - SECRET_ARN=arn:***
       - DB_NAME=flask_db
-      - CLUSTER_ARN=arn:aws:rds:us-east-1:265297481981:cluster:database-1
+      - CLUSTER_ARN=arn:***
       - REGION=us-east-1
     ports:
       - "5000:5000"

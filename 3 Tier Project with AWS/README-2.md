@@ -26,9 +26,9 @@ VPC CIDR:			10.0.0.0/24	(IP range: 256)
 
 Subnet  public1 (Zone 1):	10.0.0.0/26		(Range: 10.0.0.0 – 10.0.0.63 = 64)
 
-Subnet private 1 (Zone 1):	10.0.0.64/26		(Range: 10.0.0.64 – 10.0.0.127 = 256)
+Subnet private 1 (Zone 1):	10.0.0.64/26		(Range: 10.0.0.64 – 10.0.0.127 = 64)
 
-Subnet private 1 (Zone 2):	10.0.0.128/26		(Range: 10.0.0.128 – 10.0.0.191 = 256)
+Subnet private 1 (Zone 2):	10.0.0.128/26		(Range: 10.0.0.128 – 10.0.0.191 = 64)
 
 <br> <br><br><br><br>
 

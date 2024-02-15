@@ -1,14 +1,3 @@
-/*
-
-1. created VPC
-2. Created public and private subnets
-3. Created Public and Private route tables
-4. Created Internet Gateway and assigned to Pub RT
-5. Created NAT Gateway and assigned to Priv RT
-
-
-*/
-
 # Region
 variable "aws_region" {
   description = "AWS Region"
@@ -41,33 +30,9 @@ variable "database_subnet_cidrs" {
 }
 
 
-#In order to create subnets in different AZs
+# Create subnets in different AZs
 variable "azs" {
  type        = list(string)
  description = "Availability Zones"
  default     = ["us-east-1a",  "us-east-1b"]
 }
-
-
-
-
-# db_rds_instance_name                    = "dbpostgres"
-
-/*
-variable "az_public_subnet" {
-  type = map(string)
-}
-
-variable "az_private_subnet" {
-  type = map(string)
-}
-
-variable "az_database_subnet" {
-  type = map(string)
-}
-
-variable "availability_zones" {
-  type = list(string)
-}
-
-*/

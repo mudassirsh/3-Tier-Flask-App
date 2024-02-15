@@ -14,16 +14,13 @@ resource "aws_internet_gateway" "gw" {
 }
 
 
-
-
 # Public Route Table 
 resource "aws_route_table" "public_route_table" {
     depends_on = [
     aws_vpc.main,
     aws_internet_gateway.gw
   ]
-  
-  
+    
   vpc_id = aws_vpc.main.id
 
   route {
@@ -77,6 +74,5 @@ resource "aws_route_table_association" "private_subnet_asso" {
     aws_route_table.private_route_table
   ]
   subnet_id = aws_subnet.private_subnets[0].id
-  #subnet_id = aws_subnet.public_subnets[0].id 
   route_table_id = aws_route_table.private_route_table.id
 }

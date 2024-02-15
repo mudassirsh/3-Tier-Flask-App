@@ -2,15 +2,13 @@
 
 # Creating an Elastic IP for the NAT Gateway!
 resource "aws_eip" "bastion_eip" {
-  depends_on = [aws_instance.public-ec2vm]
-  #instance = aws_instance.public-ec2vm.id        #module.ec2_public.id[0] 
+  depends_on = [aws_instance.public-ec2vm] 
   domain = "vpc"
   tags = {
     "Name" = "bastion_eip"
   }
 }
 
-#instance = "${aws_instance.myinstance.*.id[count.index]}"
 
 # Creating a NAT Gateway!
 resource "aws_nat_gateway" "nat_gateway" {
@@ -23,7 +21,6 @@ resource "aws_nat_gateway" "nat_gateway" {
     "Name" = "NatGateway"
   }
 }
-
 
 
 output "nat_gateway_ip" {

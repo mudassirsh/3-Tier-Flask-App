@@ -1,7 +1,7 @@
 
 # Create a Null Resource and Provisioners
 resource "null_resource" "name" {
-  depends_on = [aws_instance.public-ec2vm] #[module.ec2_public]
+  depends_on = [aws_instance.public-ec2vm]
   # Connection Block for Provisioners to connect to EC2 Instance
   connection {
     type     = "ssh"
@@ -28,18 +28,7 @@ resource "null_resource" "name" {
     working_dir = "local-exec-output-files/"
     #on_failure = continue
   }
-## Local Exec Provisioner:  local-exec provisioner (Destroy-Time Provisioner - Triggered during deletion of Resource)
-/*  provisioner "local-exec" {
-    command = "echo Destroy time prov `date` >> destroy-time-prov.txt"
-    working_dir = "local-exec-output-files/"
-    when = destroy
-    #on_failure = continue
-  }  
-  */
 
 }
-
-# Creation Time Provisioners - By default they are created during resource creations (terraform apply)
-# Destory Time Provisioners - Will be executed during "terraform destroy" command (when = destroy)
 
 

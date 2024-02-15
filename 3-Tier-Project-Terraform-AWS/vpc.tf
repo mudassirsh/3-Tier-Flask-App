@@ -63,18 +63,6 @@ resource "aws_subnet" "database_subnet" {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 ======================================
        OUTPUTS
@@ -95,13 +83,5 @@ output "public_subnet_id" {
 output "private_subnet_id" {
   value = toset([for subnet in aws_subnet.private_subnets : subnet.id])
 }
-
-
-
-# DB - Subnet Group 
-
-# output "db_subnet_id" {
-#   value = toset([for subnet in aws_subnet.database_subnets : subnet.id])
-# }
 
 

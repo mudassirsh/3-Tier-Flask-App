@@ -1,5 +1,4 @@
 
-
 # DB - Subnet Group
 resource "aws_db_subnet_group" "db_subnet" {
   subnet_ids = [aws_subnet.database_subnet[0].id, aws_subnet.database_subnet[1].id]
@@ -30,4 +29,3 @@ resource "aws_db_instance" "db_postgres" {
   vpc_security_group_ids  = [aws_security_group.db_security_group.id]
   skip_final_snapshot     = true 
 }
-

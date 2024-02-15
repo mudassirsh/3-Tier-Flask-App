@@ -22,12 +22,6 @@ resource "null_resource" "name" {
       "sudo chmod 400 /tmp/terraform-key.pem"
     ]
   }
-## Local Exec Provisioner:  local-exec provisioner (Creation-Time Provisioner - Triggered during Create Resource)
-  provisioner "local-exec" {
-    command = "echo VPC created on `date` and VPC ID: ${aws_vpc.main.id} >> creation-time-vpc-id.txt"
-    working_dir = "local-exec-output-files/"
-    #on_failure = continue
-  }
 
 }
 
